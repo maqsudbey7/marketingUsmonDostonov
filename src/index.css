@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* body {
+  @apply bg-primary text-white font-sans;
+} */
+
+/* mobil uchun */
+
+@media (max-width: 640px) {
+  .slick-slide {
+
+    /* !important kerak, chunki slick inline style beradi */
+    display: flex;
+    justify-content: center;
+  }
+}
