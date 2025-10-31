@@ -73,7 +73,7 @@ export default function KouchingKimlarUchun() {
     { title: "8. Сотув ва омбор тизимлари", items: ["Сотув тизими", "Омбор тизими", "Складских учёт", "Складских процессов"] },
   ];
 
-  const clients = [ novza, laesmeralda, glasspro, thompson, revent, img1, img2, img3, img4, img5, img6, img7, img8, img9];
+  const clients = [novza, laesmeralda, glasspro, thompson, revent, img1, img2, img3, img4, img5, img6, img7, img8, img9];
   const partners = [pepsi, musaffo, lays, gorila, adernalin, mijoz1, mijoz4, mijoz5, mijoz6, mijoz7, mijoz8, mijoz9, mijoz10, mijoz11, mijoz12, mijoz13, mijoz14, mijoz15, mijoz16, mijoz17, mijoz18, mijoz19, mijoz20, mijoz21, mijoz22, mijoz23, mijoz24, mijoz25, mijoz26, mijoz27, mijoz28, mijoz30, mijoz31, mijoz32, mijoz33, mijoz34, mijoz35];
 
   const fadeIn = (delay = 0) => ({
@@ -85,21 +85,26 @@ export default function KouchingKimlarUchun() {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    speed: 1000,
     autoplay: true,
-    autoplaySpeed: 500,
-    slidesToShow: 4, // Desktop - 5 ta rasm
+    autoplaySpeed: 1200, // 🔹 har 1.2 soniyada yangi slayd
+    speed: 500,          // 🔹 o‘tish tezligi (0.5s)
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
     pauseOnHover: false,
+    swipe: true,
+    draggable: true,
+    touchMove: true,
+    cssEase: "linear",   // 🔹 silliq harakat
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 5 } }, // katta desktop
-      { breakpoint: 1024, settings: { slidesToShow: 4 } }, // planshet katta
-      { breakpoint: 768, settings: { slidesToShow: 3 } }, // planshet kichik
-      { breakpoint: 480, settings: { slidesToShow: 2 } }, // mobil
-      { breakpoint: 360, settings: { slidesToShow: 1 } }, // juda kichik mobil
+      { breakpoint: 1280, settings: { slidesToShow: 5 } },
+      { breakpoint: 1024, settings: { slidesToShow: 4 } },
+      { breakpoint: 768, settings: { slidesToShow: 3 } },
+      { breakpoint: 480, settings: { slidesToShow: 2 } },
+      { breakpoint: 360, settings: { slidesToShow: 1 } },
     ],
   };
+
 
 
   return (
@@ -132,22 +137,19 @@ export default function KouchingKimlarUchun() {
           </motion.div>
         ))}
       </motion.div>
-
- {/* Hamkorlar slider */}
-{/* Hamkorlar slider */}
-<div className="mb-12 bg-gradient-to-r mx-[100px] max-xl:mx-[70px] max-lg:mx-0 from-green-100 to-green-50 rounded-3xl py-8 px-2 sm:px-4 shadow-2xl">
-  <h2 className="text-center text-2xl sm:text-3xl font-bold mb-12 text-green-700">
-    ҲАМКОРЛАРИМИЗ
-  </h2>
-  <Slider
-    {...sliderSettings}
-    speed={500}
-    cssEase="ease-in-out"
-  >
-    {clients.map((img, i) => (
-      <div key={i} className="px-2 flex-shrink-0">
-        <div
-          className="
+      <div className="mb-12 bg-gradient-to-r mx-[100px] max-xl:mx-[70px] max-lg:mx-0 from-green-100 to-green-50 rounded-3xl py-8 px-2 sm:px-4 shadow-2xl">
+        <h2 className="text-center text-2xl sm:text-3xl font-bold mb-12 text-green-700">
+          ҲАМКОРЛАРИМИЗ
+        </h2>
+        <Slider
+          {...sliderSettings}
+          speed={500}
+          cssEase="ease-in-out"
+        >
+          {clients.map((img, i) => (
+            <div key={i} className="px-2 flex-shrink-0">
+              <div
+                className="
             w-full
             h-40 sm:h-36 md:h-40
             max-[600px]:h-24  /* 🔹 600px dan kichik bo‘lsa balandligi 24 bo‘ladi */
@@ -155,32 +157,32 @@ export default function KouchingKimlarUchun() {
             bg-white rounded-xl overflow-hidden shadow-md
             transition-all duration-300
           "
-        >
-          <img
-            src={img}
-            alt={`client-${i}`}
-            className="object-contain w-[80%] h-[80%]"
-          />
-        </div>
+              >
+                <img
+                  src={img}
+                  alt={`client-${i}`}
+                  className="object-contain w-[80%] h-[80%]"
+                />
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
-    ))}
-  </Slider>
-</div>
 
-{/* Mijozlar slider */}
-<div className="bg-gradient-to-r from-green-100 mx-[100px] max-xl:mx-[70px] max-lg:mx-0 to-green-50 rounded-3xl py-8 px-2 sm:px-4 shadow-2xl">
-  <h2 className="text-center text-2xl sm:text-3xl font-bold mb-12 text-green-700">
-    МИЖОЗЛАРИМИЗ
-  </h2>
-  <Slider
-    {...sliderSettings}
-    speed={500}
-    cssEase="ease-in-out"
-  >
-    {partners.map((img, i) => (
-      <div key={i} className="px-2 flex-shrink-0">
-        <div
-          className="
+      {/* Mijozlar slider */}
+      <div className="bg-gradient-to-r from-green-100 mx-[100px] max-xl:mx-[70px] max-lg:mx-0 to-green-50 rounded-3xl py-8 px-2 sm:px-4 shadow-2xl">
+        <h2 className="text-center text-2xl sm:text-3xl font-bold mb-12 text-green-700">
+          МИЖОЗЛАРИМИЗ
+        </h2>
+        <Slider
+          {...sliderSettings}
+          speed={500}
+          cssEase="ease-in-out"
+        >
+          {partners.map((img, i) => (
+            <div key={i} className="px-2 flex-shrink-0">
+              <div
+                className="
             w-full
             h-40 sm:h-36 md:h-40
             max-[600px]:h-24
@@ -188,17 +190,17 @@ export default function KouchingKimlarUchun() {
             bg-white rounded-xl overflow-hidden shadow-md
             transition-all duration-300
           "
-        >
-          <img
-            src={img}
-            alt={`partner-${i}`}
-            className="object-contain w-[80%] h-[80%]"
-          />
-        </div>
+              >
+                <img
+                  src={img}
+                  alt={`partner-${i}`}
+                  className="object-contain w-[80%] h-[80%]"
+                />
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
-    ))}
-  </Slider>
-</div>
 
 
 
